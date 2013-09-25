@@ -22,7 +22,12 @@ module Couchbase
       reset_keys!
     end
 
-    delegate(:delete, *READ_METHODS, to: :client)
+    ([:delete] + READ_METHODS).each do |meth|
+      meth = meth.to_sym
+      define_method meth do |key, *args, &block|
+        client.send meth, key, *args, &block
+      end
+    end
 
     WRITE_METHODS.each do |meth|
       meth = meth.to_sym
