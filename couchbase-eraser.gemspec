@@ -16,6 +16,10 @@ This is useful for testing, where you want to avoid your tests interfering with 
   gem.license = 'MIT'
 
 
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec'
+
+
   gem.files = Dir[*%w(
       lib/**/*
       LICENSE*
