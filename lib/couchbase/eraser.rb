@@ -6,6 +6,7 @@ module Couchbase
 
     WRITE_METHODS = %w(
       set
+      incr
     ).map(&:to_sym)
 
     attr_reader :client; private :client
