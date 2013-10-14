@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name = 'couchbase-eraser'
-  gem.version = '0.1.0'
+  gem.version = '0.1.1'
 
   gem.summary = "Wrapper for Couchbase client that deletes your data when you're done with it"
   gem.description = <<-DESC
