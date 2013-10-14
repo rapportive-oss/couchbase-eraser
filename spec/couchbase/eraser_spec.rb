@@ -71,5 +71,13 @@ describe Couchbase::Eraser do
       @couchbase.should_receive(:delete).exactly(1).times
       @eraser.erase_written_keys
     end
+
+    it 'should delete keys created normally then incremented' do
+      @eraser.set :hello, 0
+      @eraser.incr :hello
+
+      @couchbase.should_receive(:delete).exactly(1).times
+      @eraser.erase_written_keys
+    end
   end
 end
