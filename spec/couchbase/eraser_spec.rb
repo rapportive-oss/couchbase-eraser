@@ -3,10 +3,10 @@ require 'couchbase/eraser'
 describe Couchbase::Eraser do
   before do
     @couchbase = double 'couchbase',
-                        get: nil,
-                        set: nil,
-                        incr: nil,
-                        delete: nil
+                        :get => nil,
+                        :set => nil,
+                        :incr => nil,
+                        :delete => nil
     @eraser = Couchbase::Eraser.new @couchbase
   end
 
@@ -43,7 +43,7 @@ describe Couchbase::Eraser do
     it 'should delete a key that it set' do
       @eraser.set :hello, 'world'
 
-      @couchbase.should_receive(:delete).with(:hello, quiet: true)
+      @couchbase.should_receive(:delete).with(:hello, :quiet => true)
       @eraser.erase_written_keys
     end
 

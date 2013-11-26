@@ -18,7 +18,7 @@ module Couchbase
 
     def erase_written_keys
       @keys.each do |key|
-        client.delete key, quiet: true
+        client.delete key, :quiet => true
       end
       reset_keys!
     end
