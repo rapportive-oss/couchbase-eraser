@@ -13,14 +13,14 @@ if [ "${ruby:0:5}" == "jruby" ]; then
 
   export JRUBY_OPTS="--$jruby_mode"
 
-  gemset=rapportive-bundler_$jruby_mode
+  gemset=couchbase-eraser_$jruby_mode
   bundle_install="jruby -r openssl -S bundle install"
 else
-  gemset=rapportive-bundler
+  gemset=couchbase-eraser
   bundle_install="bundle install"
 fi
 
-rvm ${ruby}@$gemset
+rvm ${ruby}@$gemset --create
 
 set -ex
 
